@@ -1,0 +1,28 @@
+test19 README
+============
+
+Description
+----------
+Exercise of various SQL data types: VARCHAR, BIGINT, DATE, CHAR, TIME, INT, 
+DECIMAL, DOUBLE, REAL, TIMESTAMP, BOOLEAN, TINYINT, SMALLINT, CLOB
+
+
+Assumptions
+-----------
+- lhs & rhs are DB tables
+- DB tables use SQL data types: VARCHAR, BIGINT, DATE, CHAR, TIME, INT, DECIMAL, DOUBLE, REAL, TIMESTAMP, BOOLEAN, TINYINT, SMALLINT, CLOB, NCHAR, NVARCHAR
+- lhs vs. rhs has both row and column diffs
+- plan file supplies lhs table name and rhs table name
+- plan file supplies ConnectionInfo to H2 DB
+- lhs and rhs tables have identical structure
+- MagicPlan reverse engineers TableModels from the database
+- MagicPlan generates default TableComparison by aligning lhs column to rhs column based on name
+- MagicPlan uses EqualsDiffor across the board
+- MagicPlan defaults to looking for ROW and COLUMN type Diffs
+- MagicPlan sets max diffs to Long.MAX
+
+
+Expectations
+-----------
+- 14 column diff
+- 2 row diffs

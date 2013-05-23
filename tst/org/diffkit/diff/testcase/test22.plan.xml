@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="plan" class="org.diffkit.diff.conf.DKMagicPlan">
+		<property name="lhsDBTableName" value="TEST22_LHS_TABLE" />
+		<property name="rhsDBTableName" value="TEST22_RHS_TABLE" />
+		<property name="keyColumnNames">
+			<list>
+				<value>COLUMN1</value>
+			</list>
+		</property>
+		<property name="displayColumnNames">
+			<list>
+				<value>COL1</value>
+				<value>COLUMN2</value>
+			</list>
+		</property>
+		<property name="dbConnectionInfo" ref="connectionInfo" />
+		<property name="sinkFilePath" value="./test22.sink.diff" />
+	</bean>
+
+</beans>

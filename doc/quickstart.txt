@@ -1,0 +1,366 @@
+DiffKit Quick Start
+====================
+@AUTHOR@
+v@VERSION@, @BUILDDATE@ (SVN @REVISION@)
+
+Prerequisites 
+-------------
+Ensure that you have first read the link:README.html[README file].
+
+
+Verifying your environment 
+--------------------------
+The DiffKit standalone application carries with it a complete functional test
+suite. In order to verify that the standalone application works properly for your
+operating system and JVM, you should first execute the functional test suite:
+-------------------------------
+   java -jar diffkit-app.jar -test
+-------------------------------
+In the above invocation, the test suite executes against an embedded H2 database.
+To execute the test suite against your database, edit the dbConnectionInfo
+configuration files in the conf/ directory (either DB2 or Oracle). Then invoke
+the test suite (e.g. if you have an Oracle database):
+-------------------------------
+   java -jar diffkit-app.jar -test flavors=ORACLE
+-------------------------------
+Applying the embedded test suite against your own database requires that the DB
+user specified in your dbConnectionInfo has the proper permissions and db object
+grants to perform all of the activities required for DiffKit to execute the
+tests, such as CREATE TABLE. If you are having difficulties getting this to
+work, please consult the DiffKit user group http://groups.google.com/group/diffkit-user[diffkit-user] 
+
+
+Diff'ng
+-------
+DiffKit allows you to select two _Sources_ (a Left Hand Source and a Right Hand
+Source) of tabular data for comparison on a field-by-field basis, and to send
+the results of the comparison (diffs) to a _Sink_ (typically a structured file).
+You must specify the _Sources_ and _Sink_ to DiffKit via an XML configuration
+file, called a _Plan_ file. The "eg/" directory in the DiffKit distribution
+(zip) contains many examples of plan files.
+
+
+Diff'ng File tables
+-------------------
+test9.plan.xml, in the eg/ directory, is a very simple _plan_ file that
+instructs DiffKit to compare two csv files: test9.lhs.csv, and test9.rhs.csv.
+The output (diffs) will be sent to a file named test9.sink.diff. You can invoke
+the DiffKit standalone application to run this _plan_ file. From the
+distribution directory:
+-----------------
+cd eg/
+java -jar ../diffkit-app.jar -planfiles test9.plan.xml
+-----------------
+DiffKit prints a summary of the results to the console:
+-----------------
+diff'd 8 rows in 0:00:00.009, found:
+!4 row diffs
+@2 column diffs
+-----------------
+The summary tells us that there were 4 row diffs; a row diff occurs when DiffKit
+finds a row on one side, but no corresponding row on the other side. Rows are
+uniquely identified by a _key_ (analogous to a primary key in relational DBs)
+which defaults to column1 if not otherwise specified. The summary states that
+there were also 2 column diffs, which means that DiffKit was able to join (align)
+the rows, but that values in some of the columns were different between the left
+and right hand side.
+
+Running test9.plan.xml above created an output (diff) file named test9.sink.diff.
+That file contains an entry for each diff discovered. The first entry in that file 
+describes a column diff:
+
+.test9.sink.diff
+-----------------
+@{column1=1111}
+column2
+<1111
+>xxxx
+-----------------
+It tells us that the row identified by the key value (column1=1111) has a column
+diff in column2. The lhs value for column2 is 1111 while the rhs value is xxxx.
+The next entry in the diff file describes a row diff:
+
+.test9.sink.diff cont.
+-----------------
+!{column1=2222}
+<
+-----------------
+This indicates that the row identified by column1=2222 is missing from the lhs.
+Or put another way, this row is present on the rhs and not present on the lhs. 
+You should open test9.lhs.csv side-by-side with test9.rhs.csv in order to verify
+that all entries in the diff file match your expectations.
+
+test11.plan.xml shows how to explicitly specify which columns constitute the _key_,
+used to align (join) the rows between lhs and rhs:
+
+.test11.plan.xml
+-----------------
+   ...
+   <property name="keyColumnNames">
+      <list>
+         <value>column3</value>
+   ...
+-----------------
+
+
+test13.plan.xml demonstrates how to instruct DiffKit to consider only certain
+columns during comparison, ignoring all other columns:
+
+.test13.plan.xml
+-----------------
+   ...
+   <property name="diffColumnNames">
+      <list>
+         <value>column2</value>
+   ...
+-----------------
+It also shows how to specify that rows should be identified in the output (diff)
+file by values other than the key values:
+
+.test13.plan.xml cont.
+-----------------
+   ...
+   <property name="displayColumnNames">
+      <list>
+         <value>column1</value>
+         <value>column3</value>
+   ...
+-----------------
+
+test14.plan.xml demonstrates how to tell DiffKit to consider all
+columns during comparison except for a specified list (blacklist).
+
+.test14.plan.xml
+-----------------
+   ...
+   <property name="ignoreColumnNames">
+      <list>
+         <value>column3</value>
+         <value>column4</value>
+   ...
+-----------------
+
+test21.plan.xml shows how to specify which _kinds_ of diffs should be considered: 
+ROW_DIFF, COLUMN_DIFF, or BOTH (default). It also shows how to tell DiffKit to 
+halt diffing after a certain number of diffs has been recorded:
+
+.test21.plan.xml
+-----------------
+   ...
+   <property name="diffKind" value="ROW_DIFF" />
+   <property name="maxDiffs" value="2" />
+   ...
+-----------------
+
+            
+Diff'ng DB tables
+-----------------
+Diff'ng DB tables uses plan files in the same fashion as diff'ng files. The only
+difference is that instead of file paths, you must provide table names, and you 
+must also tell DiffKit how to connect to the LHS and RHS databases.
+
+test10.plan.xml demonstrates how to specify the table names used in the
+comparison:
+
+.test10.plan.xml
+-----------------
+   ...
+   <property name="lhsDBTableName" value="TEST10_LHS_TABLE" />
+   <property name="rhsDBTableName" value="TEST10_RHS_TABLE" />
+   <property name="dbConnectionInfo" ref="connectionInfo" />
+   ...
+-----------------
+In this case, both tables reside in the same database, referenced by
+"connectionInfo". Of course we also have to provide values for connectionInfo.
+We could put the connectionInfo element for these tables in the test10.plan.xml
+file, and then all information needed for the diff would be in one config file.
+Instead, we isolate the database connectionInfo values into a separate file:
+
+.dbConnectionInfo.xml
+-----------------
+   ...
+   <bean id="connectionInfo" class="org.diffkit.db.DKDBConnectionInfo">
+     <constructor-arg index="0" value="test" />
+     <constructor-arg index="1" value="H2" />
+     <constructor-arg index="2" value="file:./demo" />
+     <constructor-arg index="3">
+			<null />
+     </constructor-arg>
+     <constructor-arg index="4">
+			<null />
+     </constructor-arg>
+     <constructor-arg index="5" value="test" />
+     <constructor-arg index="6" value="test" />
+  </bean>
+-----------------
+This allows us to reuse the connectionInfo in other plans as well. The
+connectionInfo points to an embedded H2 database named "test", which is stored
+in a file at "./demo" (i.e. eg/demo.h2.db). The username is "test" and the
+password is "test". An embedded H2 database will run in the same process as
+DiffKit itself-- you do not need a separate process to serve the database. To
+run the test10 plan:
+
+-----------------
+java -jar ../diffkit-app.jar -planfiles test10.plan.xml,dbConnectionInfo.xml
+-----------------
+
+The connectionInfo to a similar IBM DB2 database:
+-----------------
+   ...
+   <bean id="connectionInfo" class="org.diffkit.db.DKDBConnectionInfo">
+     <constructor-arg index="0" value="test" />
+     <constructor-arg index="1" value="DB2" />
+     <constructor-arg index="2" value="testcase" />
+     <constructor-arg index="3" value="db2host.diffkit.org" />
+     <constructor-arg index="4" value="50000" />
+     <constructor-arg index="5" value="test" />
+     <constructor-arg index="6" value="test" />
+  </bean>
+-----------------
+This connectionInfo points to an IBM DB2 database named "testcase", running
+on host "db2host.diffkit.org" and port 50000.
+
+DiffKit can compare tables across different physical and/or logical databases.
+test18.plan.xml demonstrates this:
+
+.test18.plan.xml
+-----------------
+   ...
+   <bean id="connectionInfo" class="org.diffkit.diff.conf.DKMagicPlan">
+     <property name="lhsDBTableName" value="TEST18_LHS_TABLE" />
+     <property name="rhsDBTableName" value="TEST18_RHS_TABLE" />
+     <property name="lhsDBConnectionInfo" ref="lhsDBConnectionInfo" />
+     <property name="rhsDBConnectionInfo" ref="rhsDBConnectionInfo" />
+     ...
+   </bean>
+-----------------
+In this case, table "TEST18_LHS_TABLE" is located in a database pointed to
+by ref="lhsDBConnectionInfo" while table "TEST18_RHS_TABLE" is located in a
+database pointed to by ref="lhsDBConnectionInfo". Again, as in test10, the
+values for the references to lhsDBConnectionInfo and rhsDBConnectionInfo are in
+a separate file. However, in this case, lhsDBConnectionInfo and
+rhsDBConnectionInfo are each in their own file: test18.rhs.dbConnectionInfo.xml
+and test18.lhs.dbConnectionInfo.xml respectively. Inside, we can see that each
+of these dbConnectionInfo.xml files specifies a connection to a different 
+database:
+
+.test18.lhs.dbConnectionInfo.xml
+---------------------------------
+   ...
+   <bean id="lhsDBConnectionInfo" class="org.diffkit.db.DKDBConnectionInfo">
+      ...
+      <constructor-arg index="2" value="file:./test18_lhs_demo" />
+   ...
+---------------------------------
+
+.test18.rhs.dbConnectionInfo.xml
+---------------------------------
+   ...
+   <bean id="rhsDBConnectionInfo" class="org.diffkit.db.DKDBConnectionInfo">
+      ...
+      <constructor-arg index="2" value="file:./test18_rhs_demo" />
+   ...
+---------------------------------
+Then the plan can be executed this way:
+-----------------
+java -jar ../diffkit-app.jar -planfiles test18.plan.xml, 
+     test18.lhs.dbConnectionInfo.xml,test18.rhs.dbConnectionInfo.xml
+-----------------
+
+Diff'ng Excel spreadsheets
+--------------------------
+Diff'ng Excel spreadsheets uses plan files in the same fashion as diff'ng
+falt-files. The only difference is that in addition to the file paths to
+the Excel documents, you can also provide the name of the sheet within the
+workbook which you want to target. If you don't explicitly provide a sheet name,
+DiffKit will default to the first sheet in the workbook:
+
+.test33.plan.xml
+-----------------
+   ...
+   <property name="lhsSpreadSheetFilePath" value="./test33.lhs.xls" />
+   <property name="rhsSpreadSheetFilePath" value="./test33.rhs.xls" />
+   <property name="hasHeader" value="true" />
+   <property name="sinkFilePath" value="./test33.sink.diff" />
+   ...
+-----------------
+
+invoked this way:
+
+-----------------
+java -jar ../diffkit-app.jar -planfiles test33.plan.xml
+-----------------
+
+
+Generating DB patch files
+------------------------
+In addition to producing diff reports, as in the previous examples, DiffKit is
+also able to generate "patch" files, analogous to the patch files produced by the
+traditional Unix diff utility.  A DB patch file is a complete set of SQL DML
+statements (INSERT, DELETE, UPDATE) that will make the RHS table looks exactly
+like the LHS table. test26.plan.xml demonstrates generating DB patch files:
+
+.test26.plan.xml
+-----------------
+   ...
+      <property name="sqlPatchFilePath" value="./test26.sink.patch" />
+   ...
+-----------------
+
+invoked this way:
+
+-----------------
+java -jar ../diffkit-app.jar -planfiles test26.plan.xml,dbConnectionInfo.xml
+-----------------
+
+produces this output in the patch file:
+
+.test26.sink.patch
+-----------------
+DELETE FROM PUBLIC.TEST26_RHS_TABLE
+WHERE (COLUMN1='1' );
+
+INSERT INTO PUBLIC.TEST26_RHS_TABLE (COLUMN1, COLUMN2, COLUMN3, COLUMN4)
+VALUES ('2', 'xxxx', 2, 'zz2zz');
+
+UPDATE PUBLIC.TEST26_RHS_TABLE
+SET COLUMN3=3
+WHERE (COLUMN1='3' );
+
+UPDATE PUBLIC.TEST26_RHS_TABLE
+SET COLUMN2='5555', COLUMN3=4, COLUMN4='zz4zz'
+WHERE (COLUMN1='4' );
+
+INSERT INTO PUBLIC.TEST26_RHS_TABLE (COLUMN1, COLUMN2, COLUMN3, COLUMN4)
+VALUES ('5', 'xxxx', 5, 'zz5zz');
+
+DELETE FROM PUBLIC.TEST26_RHS_TABLE
+WHERE (COLUMN1='6' );
+
+-----------------
+
+Mixing different kinds of Sources
+----------------------------------
+Any _Kind_ of source can appear on either the LHS or the RHS. That means you can
+mix source _Kinds_ in the same comparison. test12.plan.xml demonstrates this:
+
+.test12.plan.xml
+-----------------
+   ...
+   <property name="lhsDBTableName" value="TEST12_LHS_TABLE" />
+   <property name="rhsFilePath" value="./test12.rhs.csv" />
+   <property name="dbConnectionInfo" ref="connectionInfo" />
+   ...
+-----------------
+This plan specifies that the lhs _Source_ is a DB table named LHS_TABLE, which
+resides in the database named "testcase12". The rhs _Source_ is a csv file named
+test12.rhs.csv.
+
+
+Next Steps
+----------
+Read the link:faq.html[faq]. 
+
+Read the link:userguide.html[User Guide]. 
+
+Send questions to: diffkit-user@googlegroups.com.

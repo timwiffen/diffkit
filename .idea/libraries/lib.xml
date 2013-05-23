@@ -1,0 +1,45 @@
+<component name="libraryTable">
+  <library name="lib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/svnClientAdapter.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/svnkit.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/poi-3.7-20101029.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-lang-2.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/geronimo-stax-api_1.0_spec-1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/logback-core-0.9.18.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jcl-over-slf4j-1.5.11.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/dom4j-1.6.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/org.springframework.expression-3.0.2.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/svnjavahl.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/db2jcc_license_cu.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-cli-1.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-cli-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-cli-1.2-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-beanutils-core-1.8.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/mysql-connector-java-5.1.13-bin.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/paranamer-2.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/hsqldb.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/xmlbeans-2.3.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/db2jcc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-collections-3.2.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/poi-ooxml-schemas-3.7-20101029.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/junit-4.8.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/svnant.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/poi-ooxml-3.7-20101029.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/ojdbc14.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-io-1.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/org.springframework.beans-3.0.2.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/org.springframework.core-3.0.2.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/org.springframework.context-3.0.2.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/org.springframework.asm-3.0.2.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/h2-1.2.135.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/logback-classic-0.9.18.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/groovy-all-1.7.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/postgresql-9.0-801.jdbc4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/slf4j-api-1.5.11.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jtds-1.2.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

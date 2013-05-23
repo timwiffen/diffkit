@@ -1,0 +1,28 @@
+test29 README
+=========
+
+Description
+----------
+Compare SpreadSheet tables using a PassthroughPlan. Demonstrates targeting an 
+explicitly named sheet, rather than defaulting to first sheet. Also demonstrates
+a SpreadSheet that exercises all of the different data types available within 
+DiffKit for describing columns. 
+
+Assumptions
+-----------
+- lhs & rhs are SpreadSheet FILE tables
+- plan file supplies lhs and rhs spreadsheet file paths
+- plan file supplies file path for Sink
+- lhs and rhs tables have identical structure
+- PassthroughPlan specifies identical TableModels for LHS and RHS
+- PassthroughPlan specifies most straightforward TableComparison (mappings) 
+- ROW_NUM column is not specified as part of the TableModel in the PassthroughPlan file.
+So ROW_NUMs not used.
+- PassthroughPlan specifies no header
+- PassthroughPlan specifies that key is first column (A).
+
+Expectations
+-----------
+- 9 ROW_DIFFs
+- 15 COLUMN_DIFFs
+

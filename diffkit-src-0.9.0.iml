@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="Spring" name="Spring">
+      <configuration>
+        <fileset id="fileset" name="Spring Application Context" removed="false">
+          <file>file://$MODULE_DIR$/tst/org/diffkit/diff/conf/tst/testtool.xml</file>
+          <file>file://$MODULE_DIR$/tst/org/diffkit/diff/conf/tst/test.dbsetup.xml</file>
+          <file>file://$MODULE_DIR$/tst/org/diffkit/diff/conf/tst/dbConnectionInfo.xml</file>
+          <file>file://$MODULE_DIR$/tst/org/diffkit/diff/testcase/test1.plan.xml</file>
+          <file>file://$MODULE_DIR$/tst/org/diffkit/diff/testcase/test2.plan.xml</file>
+          <file>file://$MODULE_DIR$/tst/org/diffkit/diff/testcase/test3.plan.xml</file>
+          <file>file://$MODULE_DIR$/tst/org/diffkit/diff/testcase/test4.plan.xml</file>
+          <file>file://$MODULE_DIR$/tst/org/diffkit/diff/testcase/test5.plan.xml</file>
+          <file>file://$MODULE_DIR$/tst/org/diffkit/diff/testcase/test6.plan.xml</file>
+          <file>file://$MODULE_DIR$/tst/org/diffkit/diff/testcase/test7.plan.xml</file>
+          <file>file://$MODULE_DIR$/tst/org/diffkit/diff/testcase/test8.plan.xml</file>
+          <file>file://$MODULE_DIR$/tst/org/diffkit/diff/testcase/test9.plan.xml</file>
+          <file>file://$MODULE_DIR$/tst/org/diffkit/diff/testcase/test10.plan.xml</file>
+          <file>file://$MODULE_DIR$/tst/org/diffkit/diff/testcase/test11.plan.xml</file>
+          <file>file://$MODULE_DIR$/tst/org/diffkit/diff/testcase/test12.plan.xml</file>
+          <file>file://$MODULE_DIR$/tst/org/diffkit/diff/testcase/test13.plan.xml</file>
+          <file>file://$MODULE_DIR$/tst/org/diffkit/diff/testcase/test14.plan.xml</file>
+          <file>file://$MODULE_DIR$/tst/org/diffkit/diff/testcase/test15.plan.xml</file>
+          <file>file://$MODULE_DIR$/tst/org/diffkit/diff/testcase/test16.plan.xml</file>
+          <file>file://$MODULE_DIR$/tst/org/diffkit/diff/testcase/test17.plan.xml</file>
+          <file>file://$MODULE_DIR$/tst/org/diffkit/diff/testcase/test18.plan.xml</file>
+          <file>file://$MODULE_DIR$/tst/org/diffkit/diff/testcase/test19.plan.xml</file>
+          <file>file://$MODULE_DIR$/tst/org/diffkit/diff/testcase/test20.plan.xml</file>
+          <file>file://$MODULE_DIR$/tst/org/diffkit/diff/testcase/test21.plan.xml</file>
+          <file>file://$MODULE_DIR$/tst/org/diffkit/diff/testcase/test22.plan.xml</file>
+          <file>file://$MODULE_DIR$/tst/org/diffkit/diff/testcase/test23.plan.xml</file>
+          <file>file://$MODULE_DIR$/tst/org/diffkit/diff/testcase/test24.plan.xml</file>
+          <file>file://$MODULE_DIR$/tst/org/diffkit/diff/testcase/test25.plan.xml</file>
+          <file>file://$MODULE_DIR$/tst/org/diffkit/diff/testcase/test26.plan.xml</file>
+          <file>file://$MODULE_DIR$/tst/org/diffkit/diff/testcase/test27.plan.xml</file>
+          <file>file://$MODULE_DIR$/tst/org/diffkit/diff/testcase/test28.plan.xml</file>
+          <file>file://$MODULE_DIR$/tst/org/diffkit/diff/testcase/test29.plan.xml</file>
+          <file>file://$MODULE_DIR$/tst/org/diffkit/diff/testcase/test30.plan.xml</file>
+          <file>file://$MODULE_DIR$/tst/org/diffkit/diff/testcase/test31.plan.xml</file>
+          <file>file://$MODULE_DIR$/tst/org/diffkit/diff/testcase/test32.plan.xml</file>
+          <file>file://$MODULE_DIR$/tst/org/diffkit/diff/testcase/test33.plan.xml</file>
+          <file>file://$MODULE_DIR$/tst/org/diffkit/diff/testcase/test34.plan.xml</file>
+          <file>file://$MODULE_DIR$/tst/org/diffkit/diff/testcase/test35.plan.xml</file>
+          <file>file://$MODULE_DIR$/tst/org/diffkit/diff/testcase/test36.plan.xml</file>
+          <file>file://$MODULE_DIR$/tst/org/diffkit/diff/testcase/test1.dbsetup.xml</file>
+          <file>file://$MODULE_DIR$/tst/org/diffkit/diff/testcase/test2.dbsetup.xml</file>
+          <file>file://$MODULE_DIR$/tst/org/diffkit/diff/testcase/test8.dbsetup.xml</file>
+          <file>file://$MODULE_DIR$/tst/org/diffkit/diff/testcase/test10.dbsetup.xml</file>
+          <file>file://$MODULE_DIR$/tst/org/diffkit/diff/testcase/test12.dbsetup.xml</file>
+          <file>file://$MODULE_DIR$/tst/org/diffkit/diff/testcase/test15.dbsetup.xml</file>
+          <file>file://$MODULE_DIR$/tst/org/diffkit/diff/testcase/test16.dbsetup.xml</file>
+          <file>file://$MODULE_DIR$/tst/org/diffkit/diff/testcase/test17.dbsetup.xml</file>
+          <file>file://$MODULE_DIR$/tst/org/diffkit/diff/testcase/test18.dbsetup.xml</file>
+          <file>file://$MODULE_DIR$/tst/org/diffkit/diff/testcase/test19.dbsetup.xml</file>
+          <file>file://$MODULE_DIR$/tst/org/diffkit/diff/testcase/test20.dbsetup.xml</file>
+          <file>file://$MODULE_DIR$/tst/org/diffkit/diff/testcase/test22.dbsetup.xml</file>
+          <file>file://$MODULE_DIR$/tst/org/diffkit/diff/testcase/test24.dbsetup.xml</file>
+          <file>file://$MODULE_DIR$/tst/org/diffkit/diff/testcase/test25.dbsetup.xml</file>
+          <file>file://$MODULE_DIR$/tst/org/diffkit/diff/testcase/test26.dbsetup.xml</file>
+          <file>file://$MODULE_DIR$/tst/org/diffkit/diff/testcase/test30.dbsetup.xml</file>
+          <file>file://$MODULE_DIR$/tst/org/diffkit/diff/testcase/test36.dbsetup.xml</file>
+          <file>file://$MODULE_DIR$/tst/org/diffkit/diff/testcase/testcaserunner.xml</file>
+          <file>file://$MODULE_DIR$/tst/org/diffkit/diff/testcase/dbConnectionInfo.xml</file>
+          <file>file://$MODULE_DIR$/tst/org/diffkit/diff/testcase/test18.lhs.dbConnectionInfo.xml</file>
+          <file>file://$MODULE_DIR$/tst/org/diffkit/diff/testcase/test18.rhs.dbConnectionInfo.xml</file>
+          <file>file://$MODULE_DIR$/conf/dbConnectionInfo.db2.xml</file>
+          <file>file://$MODULE_DIR$/conf/dbConnectionInfo.mysql.xml</file>
+          <file>file://$MODULE_DIR$/conf/dbConnectionInfo.oracle.xml</file>
+          <file>file://$MODULE_DIR$/conf/dbConnectionInfo.hypersql.xml</file>
+          <file>file://$MODULE_DIR$/conf/dbConnectionInfo.postgres.xml</file>
+          <file>file://$MODULE_DIR$/conf/dbConnectionInfo.sqlserver.xml</file>
+          <file>file://$MODULE_DIR$/conf/test18.lhs.dbConnectionInfo.db2.xml</file>
+          <file>file://$MODULE_DIR$/conf/test18.rhs.dbConnectionInfo.db2.xml</file>
+          <file>file://$MODULE_DIR$/conf/test18.lhs.dbConnectionInfo.mysql.xml</file>
+          <file>file://$MODULE_DIR$/conf/test18.rhs.dbConnectionInfo.mysql.xml</file>
+          <file>file://$MODULE_DIR$/conf/test18.lhs.dbConnectionInfo.oracle.xml</file>
+          <file>file://$MODULE_DIR$/conf/test18.rhs.dbConnectionInfo.oracle.xml</file>
+          <file>file://$MODULE_DIR$/conf/test18.lhs.dbConnectionInfo.hypersql.xml</file>
+          <file>file://$MODULE_DIR$/conf/test18.lhs.dbConnectionInfo.postgres.xml</file>
+          <file>file://$MODULE_DIR$/conf/test18.rhs.dbConnectionInfo.hypersql.xml</file>
+          <file>file://$MODULE_DIR$/conf/test18.rhs.dbConnectionInfo.postgres.xml</file>
+          <file>file://$MODULE_DIR$/conf/test18.lhs.dbConnectionInfo.sqlserver.xml</file>
+          <file>file://$MODULE_DIR$/conf/test18.rhs.dbConnectionInfo.sqlserver.xml</file>
+        </fileset>
+      </configuration>
+    </facet>
+  </component>
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tst" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="lib" level="project" />
+  </component>
+</module>
+

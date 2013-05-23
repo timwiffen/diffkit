@@ -1,0 +1,74 @@
+DiffKit Changelog
+==================
+@AUTHOR@
+v@VERSION@, @BUILDDATE@ (SVN @REVISION@)
+
+== release 0.9.0 (1/20/2011)
+
+- implements Issue 1: Support diffing MS xcel spreadsheets
+
+== release 0.8.10 (1/15/2011)
+
+- fixes Issue 66: allow users to "dropin" own jars
+- fixes Issue 68: unrecognized dbType_->_HYPERSQL_VARCHAR_IGNORECASE
+
+== release 0.8.9 (1/8/2011)
+
+- fixes Issue 64: connections not working to HyperSQL DBs in Server mode
+
+== release 0.8.8 (1/5/2011)
+
+- fixes Issue 61: SqlPatchSink not generating proper DML statements when String value contains single quote
+- fixes Issue 62: MagicPlan does not work for tables that have all columns being part of primary key
+
+== release 0.8.7 (12/24/2010)
+
+- fixes Issue 59: add fully functional SqlPatchSink
+- fixes Issue 58: NullPointerException in DBSink when used with Oracle
+
+== release 0.8.6 (12/16/2010)
+
+- fixes Issue 55: unrecognized dbType_->NCHAR on SQL Server 2005
+- fixes Issue 56: unrecognized dbType_- >_SQLSERVER_INT_IDENTITY
+- fixes Issue 57: fix confusing logging message for DKTableModel
+
+== release 0.8.5 (12/2/2010)
+
+- fixes Issue 52: DiffKit 0.8.4- does not work with Java 1.5 and flavor=SQLSERVER
+- fixes Issue 53: mysql unrecognized dbType _MYSQL_INT_UNSIGNED
+- fixes Issue 54: DiffKit 0.8.4- does not work with SQLServer 2005
+
+== release 0.8.4 (11/29/2010)
+
+- fixes Issue 49: add fully tested support for HyperSQL 2
+- fixes Issue 51: Postgres data type "timestamp with time zone" throws "unrecognized dbType"-excecption
+
+== release 0.8.3 (11/20/2010)
+
+- fixes Issue 50: out of memory error with Postgres
+
+== release 0.8.2 (11/18/2010)
+
+- adds fully tested support for PostgreSQL
+
+== release 0.8.1 (11/13/2010)
+
+- adds fully tested support for SQL Server
+
+== release 0.8.0 (11/05/2010)
+
+- adds fully tested support for MySQL
+
+== release 0.7.4 (11/03/2010)
+
+.Google Issue Tracker
+[format="csv",options="header"]
+|===================================================
+"ID","Type","Status","Priority","Milestone","Owner","Summary","AllLabels"
+"19","Enhancement","Fixed","Medium","","trurl00","MagicPlan should support dbTableName property","Type-Enhancement, Priority-Medium, OpSys-All"
+"20","Enhancement","Fixed","Medium","","trurl00","MagicPlan should support whereClause property","Type-Enhancement, Priority-Medium, OpSys-All"
+"26","Defect","Fixed","Medium","","trurl00","validate keyColumnNames in MagicPlan up front","Type-Defect, Priority-Medium, OpSys-All"
+"41","Defect","Fixed","Medium","","","Report Readability","Type-Defect, Priority-Medium"
+"43","Defect","Fixed","Medium","","","Exception if last value in the row in csv file is null","Type-Defect, Priority-Medium"
+|===================================================
+
