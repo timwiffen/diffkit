@@ -54,6 +54,7 @@ public class DKFileSource implements DKSource {
     * read from the first line of actual file
     */
    private String[] _headerColumnNames;
+   private int _headerBlankColumnCount; //number of blank headers on then end of the row
    private DKTableModel _model;
    private final String[] _keyColumnNames;
    /**
@@ -225,13 +226,13 @@ public class DKFileSource implements DKSource {
          return null;
       String[] strings = line_.split(_delimiter, -1);
       DKColumnModel[] readColumns = this.getReadColumns();
-      if (strings.length != readColumns.length)
+      if (strings.length != readColumns.length + _headerBlankColumnCount)
          throw new RuntimeException(String.format(
             "columnCount->%s in row->%s does not match modelled table->%s",
             strings.length, Arrays.toString(strings), _model));
       try {
-         Object[] row = new Object[strings.length];
-         for (int i = 0; i < strings.length; i++) {
+         Object[] row = new Object[readColumns.length];
+         for (int i = 0; i < readColumns.length; i++) {
             row[i] = readColumns[i].parseObject(strings[i]);
          }
          return row;
@@ -287,6 +288,7 @@ public class DKFileSource implements DKSource {
       String line = this.readLine();
       _log.info("header->{}", line);
       _headerColumnNames = line.split(_delimiter);
+      _headerBlankColumnCount = line.split(_delimiter, -1).length - _headerColumnNames.length;
    }
 
    private void ensureOpen() {
