@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Maven: db2jcc:db2jcc:20070117.184312">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/db2jcc.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

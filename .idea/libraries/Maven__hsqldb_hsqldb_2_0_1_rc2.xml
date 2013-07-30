@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Maven: hsqldb:hsqldb:2.0.1-rc2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/hsqldb.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

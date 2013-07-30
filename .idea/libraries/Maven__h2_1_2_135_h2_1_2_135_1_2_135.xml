@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Maven: h2-1.2.135:h2-1.2.135:1.2.135">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/h2-1.2.135.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

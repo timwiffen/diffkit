@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Maven: svnkit:svnkit:20090513.134210">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/svnkit.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

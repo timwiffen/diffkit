@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Maven: db2jcc_license_cu:db2jcc_license_cu:20070117.184320">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/db2jcc_license_cu.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

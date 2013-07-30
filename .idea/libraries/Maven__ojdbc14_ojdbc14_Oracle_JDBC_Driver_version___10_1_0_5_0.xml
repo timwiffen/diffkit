@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Maven: ojdbc14:ojdbc14:Oracle JDBC Driver version - 10.1.0.5.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/ojdbc14.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

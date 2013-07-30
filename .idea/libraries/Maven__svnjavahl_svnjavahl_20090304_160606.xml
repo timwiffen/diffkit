@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Maven: svnjavahl:svnjavahl:20090304.160606">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/svnjavahl.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Maven: poi-ooxml-schemas-3.7-20101029:poi-ooxml-schemas-3.7-20101029:3.7">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/poi-ooxml-schemas-3.7-20101029.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

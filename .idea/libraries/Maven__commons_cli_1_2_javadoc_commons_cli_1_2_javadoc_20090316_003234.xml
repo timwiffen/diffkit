@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Maven: commons-cli-1.2-javadoc:commons-cli-1.2-javadoc:20090316.003234">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/commons-cli-1.2-javadoc.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

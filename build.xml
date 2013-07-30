@@ -4,8 +4,8 @@
 <project name="diffkit">
 
 	<property name="root.dir" location="." />
-	<property name="src.dir" location="${root.dir}/src" />
-	<property name="tst.dir" location="${root.dir}/tst" />
+	<property name="src.dir" location="${root.dir}/src/main/java" />
+	<property name="tst.dir" location="${root.dir}/src/test/java" />
 	<property name="contrib.dir" location="${root.dir}/contrib" />
 	<property name="lib.dir" location="${root.dir}/lib" />
 	<property name="conf.dir" location="${root.dir}/conf" />
@@ -18,7 +18,7 @@
 	<property name="tstscratch.dir" location="${root.dir}/tstscratch" />
 	<property name="dist.dir" location="${root.dir}/dist" />
 	<property name="web-dist.dir" location="${root.dir}/web_dist" />
-	<property name="dist.properties.file" location="${conf.dir}/dist.properties" />
+	<property name="dist.properties.file" location="/src/test/resources/dist.properties" />
 
 	<patternset id="build.resources">
 		<include name="**/*.xml" />
@@ -68,11 +68,11 @@
 
 	<target name="dist-properties">
 
-		<propertyfile file="${dist.properties.file}">
+		<propertyfile file="/src/test/resources/dist.properties">
 			<entry key="version.date" type="date" value="now" pattern="MM/dd/yyyy" />
 		</propertyfile>
 
-		<property file="${dist.properties.file}" />
+		<property file="/src/test/resources/dist.properties" />
 
 		<property name="version" value="${version.major}.${version.minor}.${version.micro}" />
 		<property name="bin-distzip" value="${ant.project.name}-${version}.zip" />
@@ -229,8 +229,8 @@
 			</fileset>
 		</copy>
 
-		<copy file="${conf.dir}/logback.prod.xml" tofile="${dist.dir}/conf/logback.xml" />
-		<copy file="${conf.dir}/dist.properties" todir="${dist.dir}/conf/" />
+		<copy file="/src/test/resources/logback.prod.xml" tofile="${dist.dir}/conf/logback.xml" />
+		<copy file="/src/test/resources/dist.properties" todir="${dist.dir}/conf/" />
 		
 		<!-- create the diffkit standalone application that includes diffkit library 
 			and all its dependencies -->
@@ -245,7 +245,7 @@
 			<fileset dir="${dist.dir}" excludes="${appjar},${testcasedatajar}" />
 		</delete>
 
-		<copy file="${conf.dir}/logback.prod.xml" tofile="${dist.dir}/conf/logback.xml" />
+		<copy file="/src/test/resources/logback.prod.xml" tofile="${dist.dir}/conf/logback.xml" />
 		<copy todir="${dist.dir}/conf">
 			<fileset dir="${conf.dir}">
 				<include name="*dbConnectionInfo*" />
